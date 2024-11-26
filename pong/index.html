@@ -26,8 +26,8 @@ const grid = 15;
 const paddleHeight = grid * 5; // 80
 const maxPaddleY = canvas.height - grid - paddleHeight;
 
-var paddleSpeed = 20;
-var ballSpeed = 4;
+var paddleSpeed = 10;
+var ballSpeed = 10;
 
 const leftPaddle = {
   // start in the middle of the game on the left side
@@ -131,6 +131,7 @@ function loop() {
   // check to see if ball collides with paddle. if they do change x velocity
   if (collides(ball, leftPaddle)) {
     ball.dx *= -1;
+    ball.dx += 1;
 
     // move ball next to the paddle otherwise the collision will happen again
     // in the next frame
@@ -138,6 +139,7 @@ function loop() {
   }
   else if (collides(ball, rightPaddle)) {
     ball.dx *= -1;
+    ball.dx += -1;
 
     // move ball next to the paddle otherwise the collision will happen again
     // in the next frame
